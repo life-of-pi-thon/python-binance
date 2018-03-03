@@ -9,14 +9,15 @@ import requests_mock
 
 client = Client('api_key', 'api_secret')
 
-
 def test_invalid_json():
     """Test Invalid response Exception"""
 
     with pytest.raises(BinanceRequestException):
         with requests_mock.mock() as m:
+            print("test_invalid_json")
             m.get('https://www.binance.com/exchange/public/product', text='<head></html>')
             client.get_products()
+
 
 
 def test_api_exception():
@@ -48,3 +49,5 @@ def test_withdraw_api_exception():
             json_obj = {"success": False, "msg": "Insufficient funds"}
             m.register_uri('POST', requests_mock.ANY, json=json_obj, status_code=200)
             client.withdraw(asset='BTC', address='BTCADDRESS', amount=100)
+
+test_invalid_json()
