@@ -3,11 +3,11 @@
 
 from binance.client import Client
 from binance.exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException
+from config import settings
 import pytest
 import requests_mock
 
-
-client = Client('api_key', 'api_secret')
+client = Client(settings.api_key, settings.api_secret)
 
 def test_invalid_json():
     """Test Invalid response Exception"""
