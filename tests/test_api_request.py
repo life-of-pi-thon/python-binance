@@ -3,7 +3,7 @@
 
 from binance.client import Client
 from binance.exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException
-from config import settings
+from binance_config import settings
 import pytest
 import requests_mock
 

@@ -1,5 +1,5 @@
 from binance.client import Client
-from config import settings
+from binance_config import settings
 client = Client(settings.api_key,
                 settings.api_secret)
 # get market depth
