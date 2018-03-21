@@ -5,7 +5,6 @@ binance/__pycache__/
 build/
 dist/
 python_binance.egg-info/
-config/settings.py
 *.pyc
 *.pyc
 *.xml
