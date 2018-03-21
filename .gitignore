@@ -10,3 +10,4 @@ python_binance.egg-info/
 *.xml
 *.iml
 binance_config/__pycache__/__init__.cpython-35.pyc
+binance_config/settings.py
