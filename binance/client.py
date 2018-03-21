@@ -214,6 +214,24 @@ class Client(object):
     def _delete(self, path, signed=False, version=PUBLIC_API_VERSION, **kwargs):
         return self._request_api('delete', path, signed, version, **kwargs)
 
+    # Custom endpoints
+    def get_products_and_prices(self):
+        """Return Dictionary of products currently listed on Binance to their Bid and ask prices
+
+        :returns: dict- Dictionary with key=product_symbol and value as a dictionary of bid and ask price/quantity
+
+        """
+        tickers = self.get_orderbook_ticker()
+        market_books = {}
+        for market in tickers:
+            symbol = market['symbol']
+            market_books[symbol] = {'askPrice': float(market['askPrice']),
+                                    'askQty': float(market['askQty']),
+                                    'bidPrice': float(market['bidPrice']),
+                                    'bidQty': float(market['bidQty'])
+                                    }
+        return market_books
+
     # Exchange Endpoints
 
     def get_products(self):
