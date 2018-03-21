@@ -6,3 +6,8 @@ build/
 dist/
 python_binance.egg-info/
 config/settings.py
+*.pyc
+*.pyc
+*.xml
+*.iml
+binance_config/__pycache__/__init__.cpython-35.pyc
