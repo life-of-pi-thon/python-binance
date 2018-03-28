@@ -222,9 +222,10 @@ class Client(object):
 
         """
         tickers = self.get_orderbook_ticker()
+        print('binance', [market['symbol'] for market in tickers])
         market_books = {}
         for market in tickers:
-            symbol = market['symbol']
+            symbol = market['symbol'].replace('USDT','USD')
             market_books[symbol] = {'askPrice': float(market['askPrice']),
                                     'askQty': float(market['askQty']),
                                     'bidPrice': float(market['bidPrice']),
